@@ -1,0 +1,10 @@
+[{ "id": 1729304,  "name": "Bagacay",  "country": "PH",  "coord": {"lon": 123,"lat": 9}},
+{ "id":  1254454,  "name": "London",  "country": "AN",  "coord": {"lon": -145,"lat": 19}},
+{ "id":  1511515,  "name": "Minsk",  "country": "BY",  "coord": {"lon": 55,"lat": -33}},
+{ "id":  5545455,  "name": "Berlin",  "country": "GE",  "coord": {"lon": 29,"lat": 87}},
+{ "id":  8484544,  "name": "Belgrad",  "country": "SR",  "coord": {"lon": -121,"lat": -77}},
+{ "id":  5871254,  "name": "Lyon",  "country": "FR",  "coord": {"lon": 15,"lat": 67}},
+{ "id":  9874325,  "name": "Paris",  "country": "FR",  "coord": {"lon": 20,"lat": 54}},
+{ "id":  7498123,  "name": "Grodno",  "country": "BY",  "coord": {"lon": 29,"lat": 15}}
+]
+
