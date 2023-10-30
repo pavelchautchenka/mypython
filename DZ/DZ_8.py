@@ -134,7 +134,7 @@ print("\n N-10")
 
 def get_list_vowels(list_with_words:list):
     vowels = set("аеиоуыэюя")
-    new_list = sorted(list_with_words, key=lambda x:sum(c in vowels for c in x))
+    new_list = sorted(list_with_words, key=lambda x: sum(c in vowels for c in x))
     return new_list
 
 
@@ -147,8 +147,9 @@ print(res10)
 # ============================== 11 ===============================
 print("\n N-11")
 
-def get_upper_list(list_of_text:list):
-    upper_list =list(map(str.upper,list_of_text))
+
+def get_upper_list(list_of_text: list):
+    upper_list = list(map(str.upper, list_of_text))
     return upper_list
 
 
