@@ -84,8 +84,8 @@ class Circle:
 
     def calculation(self):
         res = abs(self.rad_one - self.rad_two)
-        print( res if res > 0 else Point(0, 0))
+        return res if res > 0 else Point(0, 0)
 
 
-calcul1 = Circle(15,10)
+calcul1 = Circle(15, 10)
 calcul1.calculation()
