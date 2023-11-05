@@ -30,9 +30,9 @@ class TriangleChecker:
     @staticmethod
     def is_triangle(a, b, c):
         if type(a) not in (int, float) or type(b) not in (int,float) or type(c) not in (int, float):
-        #if type (a or b or c) not in (int,float):
-        #if isinstance(a and b and c, (int, float)) is False: -- Почему так не работает ?
-        # if isinstance((a,b,c), (int, float)) is False:
+        #if type (a or b or c) not in (int,float):--------------  >
+        #if isinstance(a and b and c, (int, float)) is False: --  >   Почему так не работает ?
+        # if isinstance((a,b,c), (int, float)) is False:--------  >
             return "Only need to enter numbers"
         elif a <= 0 or b <= 0 or c <= 0:
             return "Nothing will work with negative numbers!"
@@ -88,26 +88,34 @@ class KgToPounds:
 
 
 # ============================== 4 ===============================
-print("\n N-4 ")
-
-
 class RealSting:
     def __init__(self, strings: str = " "):
         self.strings = strings
 
-    def set_strings(self, strings):
-        if isinstance(self.strings, str):
-            self.strings = strings
+    def __lt__(self, other):
+        return len(self.strings) < len(other.strings)
 
-    def get(self):
-        return len(self.strings)
+    def __le__(self, other):
+        return len(self.strings) <= len(other.strings)
+
+    def __eq__(self, other):
+        return len(self.strings) == len(other.strings)
+
+    def __ne__(self, other):
+        return len(self.strings) != len(other.strings)
+
+    def __gt__(self, other):
+        return len(self.strings) > len(other.strings)
+
+    def __ge__(self, other):
+        return len(self.strings) >= len(other.strings)
 
 
-s1 = RealSting('dsqdqsdqdqsdqdqsdqdq')
-s2 = RealSting()
+s1 = RealSting("1225")
+s2 = RealSting('qsddqsdq')
+print(s1 < s2)
 
-s2.set_strings("qsqdqdqdqd")
-print(s1.get() > s2.get())
+print(RealSting('hi') == RealSting('hello'))
 
 
 # ============================== 5 ===============================
@@ -179,10 +187,8 @@ class Person:
             return False
 
     @classmethod
-    def crate_from_string(cls, s):
-        name = str(s.split("-")[0])
-        age = int(s.split("-")[1])
-        gender = str(s.split("-")[2])
+    def crate_from_string(cls, s: str):
+        name, age, gender = s.split("-")
         my_date = cls(name, age, gender)
         return my_date
 
