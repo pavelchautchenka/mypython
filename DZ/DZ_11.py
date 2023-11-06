@@ -30,9 +30,7 @@ class TriangleChecker:
     @staticmethod
     def is_triangle(a, b, c):
         if type(a) not in (int, float) or type(b) not in (int,float) or type(c) not in (int, float):
-        #if type (a or b or c) not in (int,float):--------------  >
-        #if isinstance(a and b and c, (int, float)) is False: --  >   Почему так не работает ?
-        # if isinstance((a,b,c), (int, float)) is False:--------  >
+
             return "Only need to enter numbers"
         elif a <= 0 or b <= 0 or c <= 0:
             return "Nothing will work with negative numbers!"
@@ -128,7 +126,7 @@ class Rectangle:
 
 
     def str(self):
-        return f"ractangle with {self.width} \n " \
+        return f"rectangle with {self.width} \n " \
                f"and height {self.width}"
 
     def get_area(self):
@@ -175,9 +173,6 @@ class Person:
     def name(self, new_name: str):
         self.__name = new_name
 
-    #@property
-    #def set_name(self, new_name):             ====> или так лучше записать ?
-        #self.__name = new_name
 
     @staticmethod
     def is_adulte(age):
@@ -193,7 +188,7 @@ class Person:
         return my_date
 
 
-p1 = Person("pashka",20,"M")
+p1 = Person("pashka", 20, "M")
 p1.name = "oleg"
 print(p1.age)
 print(p1.is_adulte(17))
