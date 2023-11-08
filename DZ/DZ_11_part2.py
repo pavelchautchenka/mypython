@@ -4,10 +4,9 @@ print("\n N-1 ")
 
 class Matrix:
 
-    def __init__(self, matrix1: list[list], matrix2: list[list] = 0, scalar: int = 1):
+    def __init__(self, matrix1: list[list]):
         self.matrix1 = matrix1
-        self.matrix2 = matrix2
-        self.scalar = scalar
+
 
     def __str__(self):
         result = ""
@@ -73,7 +72,7 @@ class Matrix:
         return [[max(0, num) for num in r] for r in self.matrix1]
 
 
-matrixs = Matrix([[-1, 3], [0, 1], [-2, 2]], [[2, 0], [-1,  1], [3, -2]], 5)
+matrixs = Matrix([[-1, 3], [0, 1], [-2, 2]])
 
 print("transponation of matrixs: ",  matrixs.transpon())
 
@@ -97,7 +96,7 @@ print("positive matrix: ", matrixs.positive_matrix())
 mat1 = Matrix([[2, 3], [0, 1], [2, 2]])
 
 mat2 = Matrix([[2, 0], [-1,  1], [3, -2,2]])
-mat3 = Matrix([[151,123], [101, -1], [2222, 500]])
+mat3 = Matrix([[151, 123], [101, -1], [2222, 500]])
 
 
 
