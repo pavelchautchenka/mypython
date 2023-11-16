@@ -1,19 +1,6 @@
 from dataclasses import dataclass
 
 
-class NonProductError(Exception):
-    pass
-
-
-class Check:
-    @staticmethod
-    def validator(product):
-        if isinstance(product, Product| Article| Components):
-            return True
-        else:
-            raise NonProductError(f"The value passed is not a Product class")
-
-
 @dataclass
 class Components:
     id: int
@@ -81,4 +68,8 @@ class Chair(Furniture):
 
 @dataclass
 class Locker(Furniture):
+    size: str
+
+@dataclass
+class L:
     size: str
