@@ -114,6 +114,9 @@ fur_shop.add_product(chair1)
 fur_shop.add_product(locker1)
 fur_shop.sell_product(locker1)
 print(my_shop.all_products())
-
+c = Coffee(125, 'dsdq', 122, "sdqdsd")
 fur_shop.add_product(pizza1)
 print(my_shop.all_products())
+
+
+coffee4 = Coffee.id(12154)
