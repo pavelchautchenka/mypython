@@ -1,4 +1,7 @@
-# ============================== 1 ===============================
+import sys
+from dataclasses import dataclass, field
+from typing import TypedDict, NamedTuple
+
 print("\n N-1 ")
 
 
