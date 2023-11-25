@@ -23,7 +23,7 @@ create table users (
 id int unsigned primary key auto_increment,
 username varchar (32) not null,
 passwd varchar (128) not null,
-email varchar (64) default 'email is not defined' not null
+email varchar (64) default 'email is not defined' not null,
 
 constraint email_check check (email regexp '^[0-9a-zA-Z-\._]+@[0-9a-zA-Z-\._]+'),
 constraint passwd_check check (length(passwd) >= 10)

@@ -26,9 +26,11 @@ class Article:
     name: str
     price: float
 
+
 @dataclass
 class Book(Article):
     title: str
+
 
 @dataclass
 class Magazine(Article):
@@ -56,6 +58,7 @@ class Coffee(Product):
 class Furniture(Product):
     type: str
 
+
 @dataclass
 class Table(Furniture):
     forme: str
@@ -70,6 +73,3 @@ class Chair(Furniture):
 class Locker(Furniture):
     size: str
 
-@dataclass
-class L:
-    size: str

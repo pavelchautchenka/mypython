@@ -1,4 +1,5 @@
 import shops
+from shops import typess
 
 
 coffee1 = shops.typess.Coffee(1225, "cappuccino", 12, 'M')
@@ -16,6 +17,7 @@ fur_shop = shops.FurnitureShop()
 table1 = shops.typess.Table(12, "azea", 520, 'big table', 'round')
 chair1 = shops.typess.Chair(13, 'sdqdq', 640, 'venge', 'wood')
 locker1 = shops.typess.Locker(14, "dqsqd", 760, "steel", 'small')
+locker2 = shops.typess.Locker(20,"qddsdsq", 21, 'steel', "big")
 fur_shop.add_product(table1)
 fur_shop.add_product(chair1)
 fur_shop.add_product(locker1)
