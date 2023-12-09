@@ -4,6 +4,7 @@ from sqlalchemy import exc
 from models import create_table, drop_tables
 from crud import get_notes, create_notes
 
+
 app = Flask(__name__)
 
 drop_tables()
@@ -22,7 +23,7 @@ def get_create_note():
     )
 
 
-@app.route("/", methods=['POST'])
+@app.route("/", methods=['POST'] )
 def register_note():
     user_data = request.form
 
@@ -31,6 +32,7 @@ def register_note():
     return f"""
     <h1>Your note successfully created !</h1>
     <p>ID: {note.uuid}</p>"""
+
 
 @app.route("/<uuid>",methods=['GET'])
 def note_view(uuid: str):
@@ -49,6 +51,5 @@ def note_view(uuid: str):
     """
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
