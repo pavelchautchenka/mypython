@@ -58,3 +58,6 @@ def note_view(uuid):
         content=note.content,
         created_at=note.created_at
         )
+
+if __name__ == "__main__":
+    app.run(debug=True)
