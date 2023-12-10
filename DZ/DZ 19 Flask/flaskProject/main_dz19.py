@@ -20,13 +20,13 @@ def home_page_view():
     return render_template("home_dz19.html", notes=all_notes)
 
 
-@app.route("/register", methods=["GET"])
-def get_register_view():
+@app.route("/creation_note", methods=["GET"])
+def get_creation_view():
     return render_template("register_dz19.html")
 
 
-@app.route("/register", methods=["POST"])
-def register_note_view():
+@app.route("/creation_note", methods=["POST"])
+def creation_note_view():
     note_data = request.form
     try:
         note = create_notes(
