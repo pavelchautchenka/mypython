@@ -34,9 +34,7 @@ def register_note_view():
             content=note_data["content"]
         )
     except exc.IntegrityError:
-
-        return f"""Note with username: {note_data['title']}
-         already existed"""
+        return f"""Note with: {note_data['title']} already exists"""
 
     return redirect(url_for("note_view", uuid=note.uuid))
 
@@ -58,6 +56,7 @@ def note_view(uuid):
         content=note.content,
         created_at=note.created_at
         )
+
 
 if __name__ == "__main__":
     app.run(debug=True)

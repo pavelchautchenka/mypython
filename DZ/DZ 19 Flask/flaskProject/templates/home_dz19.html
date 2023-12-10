@@ -8,7 +8,7 @@
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
 
   <link rel="stylesheet" href="/static-files/main_dz19.css">
-  <link rel="stylesheet" href="/static/main_dz19.css">
+
 
 </head>
 
@@ -35,9 +35,9 @@
                       <use xlink:href="#man-people-user"></use>
                     </g>
 
-                    <a class="text" href="/{{ note.title }}">{{ note.title }}</a></h6>
+                    <a class="text" href="/{{note.uuid}}">{{ note.uuid }}</a></h6>
                 <div>
-                    <div class="text">Content: {{ note.content }} </div>
+                    <div class="text">Title: {{ note.title }} </div>
                 </div>
             </div>
         {% endfor %}

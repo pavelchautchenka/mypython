@@ -1,4 +1,4 @@
-from sqlalchemy import select
+from sqlalchemy import select, exc
 from models_19 import Note, session
 
 
@@ -13,6 +13,7 @@ def get_notes(uuid: str):
 
 
 def create_notes(title: str, content: str):
+
     note = Note(title=title, content=content)
     session.add(note)
     session.commit()
