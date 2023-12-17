@@ -62,7 +62,8 @@ def update_note(request: WSGIRequest, note_uuid, ):
     except Note.DoesNotExist:
         raise Http404
 
-    return HttpResponseRedirect(reverse('show-update-note', args=[note.uuid]))
+    return render(request, "update_form.html", {"note": note})
+
 
 
 def show_update_note_view(request: WSGIRequest, note_uuid):
