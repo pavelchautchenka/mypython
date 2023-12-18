@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.utils import timezone
 from django.urls import reverse
 from django.http import HttpResponseRedirect, Http404
 from django.core.handlers.wsgi import WSGIRequest
@@ -45,7 +46,7 @@ def show_note_view(request: WSGIRequest, note_uuid):
 def delete_note(request: WSGIRequest, note_uuid):
     try:
 
-        note = Note.objects.filter(uuid=note_uuid)
+        note = Note.objects.get(uuid=note_uuid)
         note.delete()
     except Note.DoesNotExist:
         # Если не найдено такой записи.
@@ -54,24 +55,15 @@ def delete_note(request: WSGIRequest, note_uuid):
     return render(request, "confirm.html", {"note": note})
 
 
-def update_note(request: WSGIRequest, note_uuid, ):
-    try:
+def update_note(request: WSGIRequest, note_uuid):
+    if request.method == "POST":
         note = Note.objects.get(uuid=note_uuid)
-        note.title = "new"
+        note.title = request.POST.get('title', note.title)
+        note.content = request.POST.get('content', note.content)
+        note.mod_time = timezone.now()
         note.save()
-    except Note.DoesNotExist:
-        raise Http404
-
+        return HttpResponseRedirect(reverse('show-note', args=[note.uuid]))
+    note = Note.objects.get(uuid=note_uuid)
     return render(request, "update_form.html", {"note": note})
 
 
-
-def show_update_note_view(request: WSGIRequest, note_uuid):
-    try:
-        note = Note.objects.get(uuid=note_uuid)  # Получение только ОДНОЙ записи.
-
-    except Note.DoesNotExist:
-        # Если не найдено такой записи.
-        raise Http404
-
-    return render(request, "note.html", {"note": note})

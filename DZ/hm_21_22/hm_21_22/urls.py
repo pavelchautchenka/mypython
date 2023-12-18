@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from hwork.views import home_page_view, create_note_view, show_note_view, about_page_view, delete_note, update_note, show_update_note_view
+from hwork.views import home_page_view, create_note_view, show_note_view, about_page_view, delete_note, update_note
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # Подключение панели администратора.
@@ -27,7 +27,7 @@ urlpatterns = [
     path("post/<note_uuid>", show_note_view, name="show-note"),
     path("about", about_page_view, name="about"),
     path("delete/<note_uuid>", delete_note, name="delete"),
-    path("update", update_note, name="update-note"),
-    path("post/<note_uuid>", show_update_note_view, name="show-update-note")
+    path("update/<uuid:note_uuid>", update_note, name="update-note"),
+
 
 ]
