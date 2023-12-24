@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     'hwork.apps.HworkConfig',
 ]
 
+AUTH_USER_MODEL = "hwork.User"
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -80,6 +85,15 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': "posts",
+    #     "USER": "django_pavel",
+    #     "PASSWORD": "password",
+    #     "HOST": "localhost",  # IP адрес или домен СУБД.
+    #     "PORT": 5432,
+    # }
 }
 
 
@@ -122,5 +136,11 @@ STATICFILES_DIRS = [BASE_DIR/'static',]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
+# ============== Media =================
+MEDIA_ROOT = BASE_DIR / 'media'  # Корень для сохранения медиа файлов.
+# Префикс, по которому Django понимает,
+# что данный URL необходимо рассматривать как файл в папке с медиа.
+MEDIA_URL = 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
