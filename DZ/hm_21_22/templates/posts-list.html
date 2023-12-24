@@ -31,7 +31,7 @@
                         </li>
                         <li class="list-group-item">
                             <a class="text-dark text-decoration-none"
-                               href="{% url 'owner-notes-view' user  %}">{{ note.user }}</a>
+                               href="{% url 'owner-notes-view' user  %}">{{ note.user | capfirst}}</a>
                         </li>
                     {% else %}
                         Anonymous User
