@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.urls import reverse
 from django.http import HttpResponseRedirect, Http404, HttpRequest
@@ -66,17 +66,30 @@ def filter_notes_view(request: WSGIRequest):
         "notes": notes_queryset,
         "search_value_form": search,
     }
+    return render(request, "home.html", context)
 
 
 def about_page_view(request: WSGIRequest):
     return render(request, "about.html")
 
 
+# все заметки любого другого пользователя
+def owner_notes_view(request: WSGIRequest, username):
+
+    user = User.objects.get(username=username)
+
+
+    user_notes = Note.objects.filter(user=user)
+
+    return render(request, 'owner_notes.html', {"notes": user_notes})
+
+
+#Заметки пользователя в логине
 def user_notes_view(request: WSGIRequest, username):
     if request.user.is_authenticated:
         user = User.objects.get(username=username)
         user_notes = Note.objects.filter(user=user)
-        return render(request,'all notes.html',{"notes": user_notes})
+        return render(request,'all notes.html', {"notes": user_notes})
     else:
         return render(request, "registration/login.html" )
 

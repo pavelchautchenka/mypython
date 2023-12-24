@@ -11,24 +11,24 @@
             <p class="blog-post-meta">{{ note.created_at }}</p>
             <p class="blog-post-meta">Note modified at: {{ note.mod_time }}</p>
         </div>
-{% if user.is_authenticated and note.user.username == user.username %}
-        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        {% if user.is_authenticated and note.user.username == user.username %}
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
 
-            <a href="{% url 'update-note' note.uuid %}" class="btn btn-warning">Update</a>
+                <a href="{% url 'update-note' note.uuid %}" class="btn btn-warning">Update</a>
 
-            <form action="{% url 'delete' note.uuid %}" method="post">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-        </div>
-{% endif %}
+                <form action="{% url 'delete' note.uuid %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        {% endif %}
         <hr>
 
 
         {#  Image  #}
-        {% if note.image   %}
+        {% if note.image %}
             <div class="d-flex justify-content-center">
-                <img style="max-height: 150px;" src="{{  note.image.url }}" alt="not loaded">
+                <img style="max-height: 150px;" src="{{ note.image.url }}" alt="not loaded">
             </div>
         {% endif %}
 
